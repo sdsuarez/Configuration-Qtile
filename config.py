@@ -210,11 +210,14 @@ screens = [
                 ),
                 
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
+       
+# widget.StatusNotifier(),
                 widget.CurrentLayout(),
-                widget.Systray(),
+		widget.Battery(),
+		widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                
+                widget.Clipboard(),
+		widget.Cmus(),
                 widget.QuickExit(),
                 
             ],
@@ -292,3 +295,4 @@ from libqtile import hook
 def autostart():
     home = os.path.expanduser('~')
     subprocess.Popen([home + '/.config/qtile/autostart.sh'])
+
